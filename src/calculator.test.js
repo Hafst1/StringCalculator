@@ -8,3 +8,6 @@ it("should return when only one number is in the string", () => {
   expect(add("5")).toBe(5);
 });
 
+it("should return sum of two given numbers ", () => {
+  expect(add("1,2")).toBe(3);
+});
