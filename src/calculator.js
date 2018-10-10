@@ -1,14 +1,22 @@
-function add (number){
-  if(number == "")
+function add (numbers){
+  if(numbers == "")
     return 0;
 
   if(number.includes(","))
   {
-    var numberArray = number.split(",");
-    return parseInt(numberArray[0]) + parseInt(numberArray[1]);
+    var numberArray = numbers.split(",");
+    return sum(numberArray);
   }
   else
-    return parseInt(number);
+    return parseInt(numbers);
+}
+
+function sum(numberArray){
+  var total = 0;
+  for(var i = 0; i < numberArray.length; i++){
+    total += parseInt(numberArray[i]);
+  }
+  return total;
 }
 
 module.exports = add;
