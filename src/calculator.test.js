@@ -19,3 +19,10 @@ it("should summarize multiple numbers", () => {
 it("should add new lines between numbers", () => {
   expect(add("1\n2,3")).toBe(6);
 });
+
+it("should not allow negative numbers and then list them", () => {
+  function isNegative() {
+    add("2,-4,3,-5");
+  }
+  expect(isNegative).toThrowError("Negatives not allowed: -4,-5");
+});

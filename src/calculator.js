@@ -1,17 +1,19 @@
 function add (numbers){
-  if(numbers == "")
+  if(numbers == ""){
     return 0;
-
+  }
   if(numbers.includes(","))
   {
     var numberArray = numbers.split(",");
     if(checkForN(numberArray) == true){
       numberArray = splitArray(numberArray);
     }
+    checkIfNegative(numberArray);
     return sum(numberArray);
   }
   else if(numbers.includes("\n")){
     numbers.split("\n")
+    checkIfNegative(numberArray);
     return sum;
   }
   else
@@ -49,6 +51,27 @@ function splitArray(numberArray){
     }
   }
   return newArr;
+}
+
+function checkIfNegative(numberArray) {
+  negativeArr = [];
+  var message = "Negatives not allowed: ";
+  var ifFound = false;
+  for(var i = 0; i < numberArray.length; i++){
+    if(parseInt(numberArray[i]) < 0){
+      negativeArr.push(numberArray[i]);
+      ifFound = true;
+    }
+  }
+  for(var i = 0; i < negativeArr.length; i++){
+    message += negativeArr[i].toString();
+    if(i < negativeArr.length - 1){
+      message += ',';
+    }
+  }
+  if(ifFound == true) {
+    throw new Error(message);
+  }
 }
 
 
