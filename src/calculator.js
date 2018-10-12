@@ -9,11 +9,13 @@ function add (numbers){
       numberArray = splitArray(numberArray);
     }
     checkIfNegative(numberArray);
+    graterThan(numberArray);
     return sum(numberArray);
   }
   else if(numbers.includes("\n")){
     numbers.split("\n")
     checkIfNegative(numberArray);
+    graterThan(numberArray);
     return sum;
   }
   else
@@ -71,6 +73,14 @@ function checkIfNegative(numberArray) {
   }
   if(ifFound == true) {
     throw new Error(message);
+  }
+}
+
+function graterThan(numberArray){
+  for(var i = 0; i < numberArray.length; i++){
+    if(numberArray[i] > 1000){
+      numberArray[i] = 0;
+    }
   }
 }
 

@@ -26,3 +26,7 @@ it("should not allow negative numbers and then list them", () => {
   }
   expect(isNegative).toThrowError("Negatives not allowed: -4,-5");
 });
+
+it("should ignore numbers grater than 1000", () => {
+  expect(add("1001,2")).toBe(2);
+});
